@@ -1,24 +1,19 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Films</ion-title>
+    <ion-title>MyFilmList</ion-title>
   </ion-toolbar>
+  
 </ion-header>
 
 <ion-content>
+  <ion-searchbar [(ngModel)]="search" (ionChange)="searchChanged($event)"></ion-searchbar>  
 
   <ion-list>
-    <ion-item *ngFor = "let film of films" [routerLink] ="['/films', film.id]">
-      
-      <ion-avatar>
-        <ion-img [src] = "film.image"></ion-img>
+    <ion-item *ngFor="let film of (films | async)" [routerLink] ="['/films', film.id]">      
+      <ion-label text-wrap><h3>{{film.Title}}</h3>{{film.Year}}</ion-label>
+      <ion-avatar slot="start">
+        <img src="{{film.Poster}}" alt="{{film.Title}}" *ngIf="film.Poster != 'N/A'">
       </ion-avatar>
-      
-      <ion-label>
-          {{film.title}} 
-      </ion-label>
-       
-      </ion-item>
-     
-  </ion-list>
-
+    </ion-item>  
+  </ion-list> 
 </ion-content>

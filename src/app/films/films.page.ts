@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FilmService} from './film.service'
+import { IFilm } from './IFilm.interface';
+import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-films',
@@ -6,25 +10,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./films.page.scss'],
 })
 export class FilmsPage implements OnInit {
+  
+  films: Observable<IFilm>;
+  search: string = '';
 
-  private films = [
-    {
-      id: '1',
-      title: 'First Film',
-      image: 'https://www.piubellamodels.com/wp-content/uploads/2019/02/film.jpg',
-      comments: ['Wow', 'Xd']
-    },
-    {
-      id: '2',
-      title: 'Second Film',
-      image: 'https://edicionesnemo.es/wp-content/uploads/2019/06/film-1155439_1280.jpg',
-      comments: ['Wow', 'Xd']
-    }
-  ]
-
-  constructor() { }
+  constructor(private filmService: FilmService) { }
 
   ngOnInit() {
+    this.films = this.filmService.getFilms();    
   }
 
+  searchChanged():void{
+    this.films = this.filmService.searchMovies(this.search);
+  }
 }

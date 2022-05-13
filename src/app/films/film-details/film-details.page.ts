@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FilmService } from '../film.service';
+import { ActivatedRoute } from '@angular/router';
+import { IFilm } from '../IFilm.interface';
 
 @Component({
   selector: 'app-film-details',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FilmDetailsPage implements OnInit {
 
-  constructor() { }
+  film: object = null;
+  
+  constructor(private filmService: FilmService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    let id = this.activatedRoute.snapshot.paramMap.get('filmId');
+    this.filmService.getDetails(id).subscribe(res => {this.film = res});
   }
 
 }
