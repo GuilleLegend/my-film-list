@@ -1,0 +1,8 @@
+{
+  "name": "MyFilmList",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "17e42c86"
+}
