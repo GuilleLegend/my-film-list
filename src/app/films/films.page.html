@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Films</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-item *ngFor = "let film of films" [routerLink] ="['/films', film.id]">
+      
+      <ion-avatar>
+        <ion-img [src] = "film.image"></ion-img>
+      </ion-avatar>
+      
+      <ion-label>
+          {{film.title}} 
+      </ion-label>
+       
+      </ion-item>
+     
+  </ion-list>
+
+</ion-content>
