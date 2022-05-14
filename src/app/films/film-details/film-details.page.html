@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>{{film?.Title}}</ion-title>  
+    <ion-title>{{film?.Genre}}</ion-title>  
     <ion-button color="transparent" slot="start" [routerLink]="['/films']" [round]="isRound">
       <ion-icon name="chevron-back-outline"></ion-icon>
     </ion-button>
@@ -12,7 +12,7 @@
 <ion-content padding>
   <ion-card *ngIf="film">
     <ion-card-header text-center>
-      <ion-card-title>{{film?.Genre}}</ion-card-title>
+      <ion-card-title>{{film?.Title}}</ion-card-title>
       <ion-card-subtitle>
         {{film.Year}} {{film.Language}}
       </ion-card-subtitle>
