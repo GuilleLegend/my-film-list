@@ -1,9 +1,56 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>film-details</ion-title>
+    <ion-title>{{film?.Title}}</ion-title>  
+    <ion-button color="transparent" slot="start" [routerLink]="['/films']" [round]="isRound">
+      <ion-icon name="chevron-back-outline"></ion-icon>
+    </ion-button>
+  
+
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
+  <ion-card *ngIf="film">
+    <ion-card-header text-center>
+      <ion-card-title>{{film?.Genre}}</ion-card-title>
+      <ion-card-subtitle>
+        {{film.Year}} {{film.Language}}
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
 
+      <img src="{{film.Poster}}" class="info-img"> 
+
+      <ion-item lines="none">
+        <ion-icon name="chatbox-ellipses-outline" slot="start" ></ion-icon>
+        <ion-label> {{film.Plot}}
+        </ion-label>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-icon name="star-half" slot="start"></ion-icon>
+        <ion-label> {{film?.imdbRating}}
+        </ion-label>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-icon name="time" slot="start"></ion-icon>
+        <ion-label> {{film?.Runtime}}
+        </ion-label>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-icon name="clipboard" slot="start"></ion-icon>
+        <ion-label text-wrap> {{film?.Director}}
+        </ion-label>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-icon name="people" slot="start"></ion-icon>
+        <ion-label text-wrap> {{film?.Actors}}
+        </ion-label>
+      </ion-item>
+
+    </ion-card-content>
+  </ion-card>
 </ion-content>
