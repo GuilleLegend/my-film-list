@@ -15,8 +15,9 @@ export class FilmDetailsPage implements OnInit {
   constructor(private filmService: FilmService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    let id = this.activatedRoute.snapshot.paramMap.get('filmId');
-    this.filmService.getDetails(id).subscribe(res => {this.film = res});
+    let id = this.activatedRoute.snapshot.paramMap.get('id');
+    console.log(id);
+    this.filmService.getDetails(id).subscribe(result => this.film = result);
   }
 
 }

@@ -13,7 +13,7 @@ export class FilmService {
   private URL = '';
   private API = '68d16e3f';
   private BASEURL = 'https://www.omdbapi.com/';  
-  private APIURL = 'http://www.omdbapi.com/?apikey='+this.API;
+  private APIURL = 'http://www.omdbapi.com/?apikey='+ this.API;
   
   constructor(private http: HttpClient) { }
 
@@ -24,10 +24,12 @@ export class FilmService {
 
   searchMovies(title: string){
     this.URL = 'https://www.omdbapi.com/?s=' + title + '&type=movie&apikey=' + this.API;   
+    console.log(this.URL);
     return this.http.get<IFilm>(this.URL).pipe(map(films => films['Search']));
     }
 
-  getDetails(id: string){   
+  getDetails(id: string){  
+    console.log('https://www.omdbapi.com/?i='+ id +'&plot=full&apikey=' + this.API) 
     return this.http.get<IFilm>('https://www.omdbapi.com/?i=' + id + '&plot=full&apikey=' + this.API);
   }
 }
