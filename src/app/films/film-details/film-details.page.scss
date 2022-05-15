@@ -1,7 +1,19 @@
 .info-img{
   max-height: 50vh;
   max-width: 50vh;
-  padding: 5px;
+  padding: 5px;   
+}
+
+.ios info-img{
+  width: auto;
+  margin: auto;
+  display: block;
+}
+
+.md info-img{
+  width: auto;
+  margin: auto;
+  display: block;
 }
 
 .button{
@@ -12,7 +24,9 @@
   @media (max-width: 800px){
     .info-img{
       max-height: 100%;
+      
     }
+    
   }
 
 
