@@ -11,6 +11,7 @@ import { IFilm } from '../IFilm.interface';
 export class FilmDetailsPage implements OnInit {
 
   film: object = null;
+  itemExpanded: boolean = false;
   
   constructor(private filmService: FilmService, private activatedRoute: ActivatedRoute) { }
 

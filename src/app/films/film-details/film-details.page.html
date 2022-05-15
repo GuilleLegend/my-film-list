@@ -23,8 +23,10 @@
 
       <ion-item lines="none">
         <ion-icon name="chatbox-ellipses-outline" slot="start" ></ion-icon>
-        <ion-label> {{film.Plot}}
-        </ion-label>
+        <ion-label>Plot </ion-label>
+        <expandable expandedHeight="200" [expanded]= "itemExpanded">
+          {{film.Plot}}
+        </expandable>
       </ion-item>
 
       <ion-item lines="none">
